@@ -1,6 +1,5 @@
 import pygame
 import sys
-import time
 from bird import Bird
 from pipe import Pipe
 from score import Score
@@ -50,7 +49,6 @@ def main():
                 # Bird "flap" when space is pressed
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
-                        # bird.vel = BIRD_JUMP
                         bird.flap(BIRD_JUMP)
 
             # update bird physics
@@ -69,10 +67,6 @@ def main():
             # check for collision
             if pipe.check_collision(bird_rect, SCREEN_HEIGHT):
                 bird.fall_to_ground(GRAVITY, SCREEN_HEIGHT)
-                # pipe.pipes.clear()
-                # bird.y = SCREEN_HEIGHT // 2
-                # bird.vel = 0
-                # bird.angle = 0
                 score.end_game()
                 playing = False
 
